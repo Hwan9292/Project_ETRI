@@ -1,0 +1,41 @@
+<Front (client)>세림영선
+    list (code)
+    iscroll , view(display:none-block)
+    add필요한지 질문
+    
+    <Admin>성환민세
+    list (화면1)
+    view (화면2)
+    modify(화면2)
+    add(화면2)
+    같은모양 발주서 하나만 만들어서 명령어만 바꿔서 입력,수정 가능하게
+    
+    계산식 : 수량x단가=공급가액 
+    공급가액-공급가액의10%(부가세)=최종가격 변수x해놓고 합계로 출력
+    
+    *금액 한글로 나오는 방법??
+    
+    <db이름정하기>
+    일련번호   num   
+    수신   comp
+    참조   cc
+    TEL   tel
+    FAX   fax
+    납기일자   dead
+    합계   sum
+    품목코드   code
+    품목명   item
+    수량   qty
+    단가   price
+    공급가액   vos (value of supply)
+    부가세   vat
+    
+    <컨셉>
+    NETFLIX RED
+    PANTONE: PMS 1795 C;
+    HEX COLOR: #E50914;
+    RGB: (229,9,20)
+    CMYK: (0,96,93,2)
+    
+    <품목구분(code)>
+    전체 / 의약품/ 의약외품/생물의약품/마약류/한약(생약)제제
