@@ -33,27 +33,20 @@
                                     <Columns>
 
                                         <asp:BoundField DataField="SCM_NoticeID" HeaderText="No" ItemStyle-Width="70px" ItemStyle-Height="30px" ItemStyle-HorizontalAlign="Center"  
-                                            HeaderStyle-Width="5%" HeaderStyle-height="35px" HeaderStyle-HorizontalAlign="Center" />
+                                            HeaderStyle-Width="10%" HeaderStyle-height="35px" HeaderStyle-HorizontalAlign="Center" />
 											
 											
-										<asp:TemplateField HeaderText="일련번호">
+										<asp:TemplateField HeaderText="품목코드">
                                             <ItemTemplate>                                                
-                                             &nbsp;<%#FuncCutStrng(Eval("code1"))%></font> 											
+                                             &nbsp;<%#FuncCutStrng(Eval(code))%></font> 											
                                             </ItemTemplate>
-                                            <ItemStyle Width="5%" HorizontalAlign="Center"   verticalAlign="top"/>
+                                            <ItemStyle Width="10%" HorizontalAlign="Center"   verticalAlign="top"/>
                                         </asp:TemplateField> 
 											
 											
-											
-										<asp:TemplateField HeaderText="수신인">
-                                            <ItemTemplate>                                                
-                                             &nbsp;<%#FuncCutStrng(Eval("ts1"))%></font> 											
-                                            </ItemTemplate>
-                                            <ItemStyle Width="10%" HorizontalAlign="left"   verticalAlign="top"/>
-                                        </asp:TemplateField> 
-
-
-                                        <asp:TemplateField HeaderText=  "품목명">
+                                        <asp:TemplateField HeaderText=  "수신">
+                                            <!-- joblink에서 프로젝트명 자리 : 누르면 more효과 발생 -->
+                                            <!-- 누르면 일련번호(num),TEL(tel),합계금액(sum)나오도록 변경 -->
                                             <ItemTemplate> 
 											
                                                 <a href='SCM_NoticeView.aspx?SCM_NoticeID=<%#Eval("SCM_NoticeID") %>' onclick="viewStyle(this);return false">													
@@ -63,24 +56,28 @@
                                                     &nbsp;<%#FuncNew(Eval("PostDate")) %></a>
 												 
 												<DIV style='display:none'>
-												 <br>
-												<img src='../../fileUpload/notice/<%#FuncCutStrng(Eval("UpFileName"))%>' width=100%>													
-												    <br><br>
-												   <%#FuncLineReturn(Eval("cs1"))%> 	
-														<br><br>												   
+                                                    <br>
+												    <%#FuncLineReturn(Eval("num"))%> 	
+                                                    <br>
+                                                    <br>
+                                                    <%#FuncLineReturn(Eval("tel"))%> 	
+                                                    <br>
+                                                    <br>
+                                                    <%#FuncLineReturn(Eval("sum"))%> 	
+                                                   <br>											   
 													</div>
 																								
 												 </ItemTemplate>
-                                            <ItemStyle Width="35%"    HorizontalAlign="left" verticalAlign="top"/>
+                                            <ItemStyle Width="60%"    HorizontalAlign="left" verticalAlign="top"/>
                                         </asp:TemplateField>  
 										
 						
 										
 										<asp:TemplateField HeaderText="납기일자">
                                             <ItemTemplate>                                                 
-                                                   <%#FuncCutStrng(Eval("Dead1"))%> 
+                                                   <%#FuncCutStrng(Eval("dead"))%> 
                                             </ItemTemplate>
-                                            <ItemStyle Width="8%" HorizontalAlign="center"   verticalAlign="top"/>
+                                            <ItemStyle Width="20%" HorizontalAlign="center"   verticalAlign="top"/>
                                         </asp:TemplateField> 
 										
 	
