@@ -1,7 +1,154 @@
-<table>
-    <tr>
-        <td>
-            
-        </td>
-    </tr>
-</table>
+<!-- <%@ Control Language="C#" AutoEventWireup="true" CodeFile="SCM_NoticeViewControl.ascx.cs" Inherits="Admin_SCM_NoticeViewControl" %> -->
+
+<link rel="stylesheet" href="build/kalendae.css" type="text/css" charset="utf-8">
+<script src="build/kalendae.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css" media="screen">
+    .kalendae .k-days span.closed {
+        background:red;
+    }
+</style>
+
+
+<table style="border: 1px solid #d7d7d7">
+    <asp:Label ID="lblNoticeError" runat="server" ForeColor="Red"></asp:Label>
+    </td></tr></table>   
+    
+    <!-- 민세 -->
+    <!-- view 상단 좌측 -->
+     <table width=98%>
+        <tr><td width=45% valign="top">
+            <table width=100% border="2px" style="text-align: center; border-collapse: collapse;">
+                <tr>
+                    <td width=22% bgcolor="#efefef"><b>일련번호</b></td>
+                    <td><b><asp:TextBox ID="txtnum" runat="server"   width="80%"></asp:TextBox></b></td> 
+                </tr>
+                <tr>
+                    <td bgcolor="#efefef"><b>수신</b></td>
+                    <td><b><asp:TextBox ID="txtcomp" runat="server"   width="80%"></asp:TextBox></b></td> 
+                </tr>
+                <tr>
+                    <td bgcolor="#efefef"><b>참조</b></td>
+                    <td><b><asp:TextBox ID="txtcc" runat="server"   width="80%"></asp:TextBox></b></td> 
+                </tr>
+                <tr>
+                    <td bgcolor="#efefef"><b>TEL</b></td>
+                    <td><b><asp:TextBox ID="txttel" runat="server"   width="80%"></asp:TextBox></b></td> 
+                </tr>
+                <tr>
+                    <td bgcolor="#efefef"><b>FAX</b></td>
+                    <td><b><asp:TextBox ID="txtfax" runat="server"   width="80%"></asp:TextBox></b></td> 
+                </tr>
+            </table>
+                <table width=100% border="2px" style="text-align: center; border-collapse: collapse;  border-top: none;">
+                <tr>
+                    <td style="text-align: right; border-right: none;" width=50%>납기일자:</td>
+                    <td style="text-align: left; border-left: none;" width=50%><b><asp:TextBox ID="txtdead" runat="server" Width="50%" class="auto-kal"></asp:TextBox></td>
+                </tr>
+                </table>
+
+
+    <!-- view 상단 우측 -->
+            <td width=53% valign="top">
+                <table width=100% border="2px"  style="text-align: center; border-collapse: collapse;">
+                    <tr height=50>
+                        <td colspan="2">ECOUNT</td>
+                    </tr>
+                    <tr>
+                        <td width=20% bgcolor="#efefef"><b>사업자등록번호</b></td>
+                        <td style="text-align: left;">339-95-00113</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#efefef"><b>회사명/대표</b></td>
+                        <td style="text-align: left;">이카운트/ 이재연</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#efefef"><b>주소</b></td>
+                        <td style="text-align: left;">서울특별시 서초구 서초중앙로 230(반포동) 동화반포프라자 5층</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#efefef"><b>담당/연락처</b></td>
+                        <td style="text-align: left;">윤승관/ 010-1234-5678</td>
+                    </tr>
+                </table>
+            </td>
+        </td></tr>
+    </table>
+    
+    
+    <!--View : 상단-->
+    
+    <table width=98% border="3" bordercolor="black" style="border-collapse: collapse; margin-top: 5px;">
+        <tr height=30>
+            <td style="border: none;" width="30%" align=center><b>금액 : 일천칠만일천삼백팔십원 정<asp:Label ID="금액" runat="server"></asp:Label> </b>
+            </td>
+            <td style="border: none;" align="right"><b>($ 10,071,380원) / VAT포함</b>
+                <asp:Label ID="none" runat="server"></asp:Label>
+            </td>
+        </tr>
+    </table>
+
+    <!-- 추가 버튼 -->
+    <table width=98% style="margin-top: 5px;">
+        <tr>
+            <td width=80%></td>
+            <td width=18% style="text-align: right;"><input type="button" value="추가"><input type="button" value="삭제"></td>
+        </tr>
+    </table>
+    
+    <!--View_List : 상단-->
+    <table width=98% border="1" style="border-collapse: collapse; margin-top: 5px;">
+        <tr bgcolor="#efefef" style="text-align: center;">
+            <td width=10%><b>품목코드</b></td>
+            <td><b>품목명(규격)</b></td>
+            <td width=5%><b>수량</b></td>
+            <td width=10%><b>단가</b></td>
+            <td width=10%><b>공급가액</b></td>
+            <td width=10%><b>부가세</b></td>
+        </tr>
+    <!--View_List : 메인-->
+        <tr>
+            <td><b><asp:TextBox ID="txtcode" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td><b><asp:TextBox ID="txtitem" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td style="text-align: right;"><b><asp:TextBox ID="txtqty" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td style="text-align: right;"><b><asp:TextBox ID="txtprice" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td style="text-align: right;"><b><asp:TextBox ID="txtvos" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td style="text-align: right;"><b><asp:TextBox ID="txtvat" runat="server"   width="80%"></asp:TextBox></b></td>
+        </tr>
+    
+    </table>
+    
+    
+    <!--View : 하단
+        수량 공급가액 등 리스트의 number를 사칙연산한 결과들-->
+    <table width=98% border="3"style="border-collapse: collapse; margin-top:5px;" >
+        <tr >
+            <td bgcolor="#efefef" width="10%" align=center><b> 수량</b></td>
+            <td align=right><b><asp:TextBox ID="txtqty" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td bgcolor="#efefef" width="10%" align=center><b> 공급가액</b></td>
+            <td align=right><b><asp:TextBox ID="txtvos" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td bgcolor="#efefef" width="10%" align=center><b> VAT</b></td>
+            <td align=right><b><asp:TextBox ID="txtvat" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td bgcolor="#efefef" width="10%" align=center><b> 합계</b></td>
+            <td align=right><b><asp:TextBox ID="txtsum" runat="server"   width="80%"></asp:TextBox></b></td>
+        </tr>
+    </table>
+    <br>
+    <!--View footer-->
+    <table width=98% border="0" style="border-collapse: collapse;">
+        <tr>
+            <td align="right">
+                <button href="#" value="확인">확인</button>
+                <button href="#" value="수정">수정</button>
+                <button href="#" value="취소">취소</button>
+            </td>
+        </tr>
+    </table>
+    
+       
+    
+    <!--
+    <asp:Label ID="lblFileName2" runat="server"></asp:Label><asp:Button  ID="btnFile2"  runat="server" onclick="btnFile_Click" Text="download" />
+    <asp:Label ID="lblFileName3" runat="server"></asp:Label><asp:Button  ID="btnFile3"  runat="server" onclick="btnFile_Click" Text="download" />
+    <asp:Label ID="lblFileName4" runat="server"></asp:Label><asp:Button  ID="btnFile4"  runat="server" onclick="btnFile_Click" Text="download" />
+    <asp:Label ID="lblFileName5" runat="server"></asp:Label><asp:Button  ID="btnFile5"  runat="server" onclick="btnFile_Click" Text="download" />-->
+    
