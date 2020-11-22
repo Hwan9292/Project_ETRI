@@ -1,7 +1,28 @@
-<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SCM_NoticeListControl.ascx.cs" Inherits="Admin_SCM_NoticeListControl" %>
-<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+<!-- <%@ Control Language="C#" AutoEventWireup="true" CodeFile="SCM_NoticeListControl.ascx.cs" Inherits="Admin_SCM_NoticeListControl" %>
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager> -->
 
+<!--
+    <db이름정하기>
+주키(번호)  Order_ID
+일련번호   num   
+수신      comp
+참조   cc
+TEL   tel
+FAX   fax
+납기일자   dead
+합계   sum
+품목코드   code
+품목명   item
+수량   qty
+단가   price
+공급가액   vos (value of supply)
+부가세   vat
 
+품목코드 Code
+
+-->
+
+<!-- .ascx File-->
 <table width=98% border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td height="30" colspan=9 align=center bgcolor="#5D7B9D">
@@ -10,8 +31,6 @@
     </tr>
     <tr>
         <td height="40" align="center">
-
-
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:GridView ID="ctlNoticeList" runat="server" AutoGenerateColumns="False" AllowPaging="True"
@@ -19,84 +38,40 @@
                         OnPageIndexChanging="ctlNoticeList_PageIndexChanging">
 
                         <Columns>
-                            <asp:BoundField DataField="SCM_NoticeID" HeaderText="번호" ItemStyle-Width="70px"
+                            <!--SCM_NoticeID -> OrderID-->
+                            <asp:BoundField DataField="OrderID" HeaderText="번호" ItemStyle-Width="70px"
                                 ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="5%"
                                 HeaderStyle-HorizontalAlign="Center" />
 
-
-                            <asp:TemplateField HeaderText="TITLE">
+                            <!--수신 TITLE -> comp-->
+                            <asp:TemplateField HeaderText="수신">
                                 <ItemTemplate>
-                                    <a href='SCM_NoticeView.aspx?SCM_NoticeID=<%#Eval("SCM_NoticeID") %>'>
-                                        <%#FuncCutStrng(Eval("Title"))%>
-                                        &nbsp;
-                                        <%#FuncNew(Eval("PostDate")) %>
+                                    <a href='SCM_NoticeView.aspx?OrderID=<%#Eval("OrderID") %>'>
+                                        <%#FuncCutStrng(Eval("comp"))%>
+                                        <!-- &nbsp;
+                                        <%#FuncNew(Eval("PostDate")) %> -->
                                     </a>
                                 </ItemTemplate>
                                 <ItemStyle Width="15%" HorizontalAlign="Left" />
                             </asp:TemplateField>
 
-
-                            <asp:TemplateField HeaderText="구분">
+                            <!-- 구분(DropCode) -> TEL(tel)-->
+                            <asp:TemplateField HeaderText="TEL">
                                 <ItemTemplate>
-                                    <%#FuncCutStrng(Eval("DropCode"))%>
+                                    <%#FuncCutStrng(Eval("tel"))%>
                                 </ItemTemplate>
                                 <ItemStyle Width="5%" HorizontalAlign="center" />
                             </asp:TemplateField>
 
+                            <!--고객사(Customer) -> 납입일자(dead)-->
                             <asp:TemplateField HeaderText="고객사">
                                 <ItemTemplate>
-                                    <%#FuncCutStrng(Eval("Customer"))%>
+                                    <%#FuncCutStrng(Eval("dead"))%>
                                 </ItemTemplate>
                                 <ItemStyle Width="10%" HorizontalAlign="left" />
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="기간">
-                                <ItemTemplate>
-                                    <%#FuncCutStrng(Eval("Date1"))%>
-                                </ItemTemplate>
-                                <ItemStyle Width="5%" HorizontalAlign="left" />
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="언어">
-                                <ItemTemplate>
-                                    <%#FuncCutStrng(Eval("Lang"))%>
-                                </ItemTemplate>
-                                <ItemStyle Width="8%" HorizontalAlign="left" />
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="종료">
-                                <ItemTemplate>
-                                    <%#FuncCutStrng(Eval("LastDate"))%>
-                                </ItemTemplate>
-                                <ItemStyle Width="8%" HorizontalAlign="center" />
-                            </asp:TemplateField>
-
-
-                            <asp:TemplateField HeaderText="진행">
-                                <ItemTemplate>
-                                    &nbsp;<font color="<%#FuncCutStrng(Eval("Color"))%>">
-                                        <b><%#FuncCutStrng(Eval("Progress"))%></b></font>
-                                </ItemTemplate>
-                                <ItemStyle Width="5%" HorizontalAlign="center" />
-                            </asp:TemplateField>
-
-                            <asp:BoundField DataField="PostDate" HeaderText="작성일" HtmlEncode="False"
-                                DataFormatString="{0:yyyy-MM-dd}">
-                                <ItemStyle HorizontalAlign="Center" Width="10%" />
-                            </asp:BoundField>
-
-                            <asp:BoundField DataField="ReadCount" HeaderText="조회">
-                                <ItemStyle HorizontalAlign="Center" Width="5%" />
-                            </asp:BoundField>
-
-
-                            <asp:TemplateField HeaderText="기술">
-                                <ItemTemplate>
-                                    <%#FuncCutStrng(Eval("Tech"))%>
-                                </ItemTemplate>
-                                <ItemStyle Width="20%" HorizontalAlign="left" />
-                            </asp:TemplateField>
-
+                            <!--CheckBox-->
                             <asp:TemplateField>
                                 <HeaderTemplate>
                                     <asp:CheckBox ID="chkAll" runat="server" AutoPostBack="true"
@@ -122,6 +97,7 @@
             </asp:UpdatePanel>
         </td>
     </tr>
+
     <tr>
         <td height="1" bgcolor="#cccccc">
         </td>
@@ -132,23 +108,27 @@
 
             <table border="0" cellpadding="1" cellspacing="1" align=right>
                 <tr>
-                    <td height="40" align="right" valign="top">
+                    <!-- <td height="40" align="right" valign="top">
                         <asp:Panel ID="Panel1" runat="server" Width="100%" DefaultButton="btnSearch">
                             <asp:DropDownList ID="lstField" runat="server" CssClass="DropList">
                                 <asp:ListItem Selected="True" Value="Title">제목</asp:ListItem>
+
                                 <asp:ListItem Value="Content">내용</asp:ListItem>
                             </asp:DropDownList>
-                    </td>
+                    </td> -->
 
                     <td height="40" align="left" valign="top">
                         <asp:TextBox ID="txtQuery" runat="server" CssClass="txt"></asp:TextBox>
                     </td>
                     <td height="40" align="left" valign="top">
                         <nobr>
-                            <asp:ImageButton ID="btnSearch" runat="server" ImageUrl="~/Images/find_bt.gif"
-                                OnClick="btnSearch_Click" />
+                            <!-- <asp:ImageButton ID="btnSearch" runat="server" ImageUrl="~/Images/find_bt.gif"
+                                OnClick="btnSearch_Click" /> -->
+
+                            <!--발주서 '작성'하기-->
                             <asp:ImageButton ID="btnWrite" runat="server" ImageUrl="~/Images/write_bt.gif"
                                 OnClick="btnWrite_Click" />
+                            <!--발주서 '삭제'하기-->
                             <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/Images/delete_bt.gif"
                                 OnClick="btnDelete_Click" />
                             <!--<asp:ImageButton ID="btnPush" runat="server" ImageUrl="~/Images/Push_bt.gif" OnClick="btnPush_Click" />-->
