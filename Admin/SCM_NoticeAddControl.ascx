@@ -104,7 +104,7 @@
         </tr>
 
         <tr>
-            <td><b><asp:TextBox ID="txtts2" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td><b><asp:TextBox ID="txtts02" runat="server"   width="80%"></asp:TextBox></b></td>
             <td><b><asp:TextBox ID="txtcs2" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtqty2" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtprice2" runat="server"   width="80%"></asp:TextBox></b></td>
@@ -113,7 +113,7 @@
         </tr>
 
         <tr>
-            <td><b><asp:TextBox ID="txtts3" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td><b><asp:TextBox ID="txtts03" runat="server"   width="80%"></asp:TextBox></b></td>
             <td><b><asp:TextBox ID="txtcs3" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtqty3" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtprice3" runat="server"   width="80%"></asp:TextBox></b></td>
@@ -122,7 +122,7 @@
         </tr>
 
         <tr>
-            <td><b><asp:TextBox ID="txtts4" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td><b><asp:TextBox ID="txtts04" runat="server"   width="80%"></asp:TextBox></b></td>
             <td><b><asp:TextBox ID="txtcs4" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtqty4" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtprice4" runat="server"   width="80%"></asp:TextBox></b></td>
@@ -131,7 +131,7 @@
         </tr>
 
         <tr>
-            <td><b><asp:TextBox ID="txtts5" runat="server"   width="80%"></asp:TextBox></b></td>
+            <td><b><asp:TextBox ID="txtts05" runat="server"   width="80%"></asp:TextBox></b></td>
             <td><b><asp:TextBox ID="txtcs5" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtqty5" runat="server"   width="80%"></asp:TextBox></b></td>
             <td style="text-align: right;"><b><asp:TextBox ID="txtprice5" runat="server"   width="80%"></asp:TextBox></b></td>

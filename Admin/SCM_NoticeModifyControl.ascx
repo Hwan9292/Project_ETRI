@@ -91,7 +91,7 @@
         </tr>
 
         <tr>
-            <td><asp:Label ID="ts2" runat="server"></asp:Label></td>
+            <td><asp:Label ID="ts02" runat="server"></asp:Label></td>
             <td><asp:Label ID="cs2" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="qty2" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="price2" runat="server"></asp:Label></td>
@@ -100,7 +100,7 @@
         </tr>
 
         <tr>
-            <td><asp:Label ID="ts3" runat="server"></asp:Label></td>
+            <td><asp:Label ID="ts03" runat="server"></asp:Label></td>
             <td><asp:Label ID="cs3" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="qty3" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="price3" runat="server"></asp:Label></td>
@@ -109,7 +109,7 @@
         </tr>
 
         <tr>
-            <td><asp:Label ID="ts4" runat="server"></asp:Label></td>
+            <td><asp:Label ID="ts04" runat="server"></asp:Label></td>
             <td><asp:Label ID="cs4" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="qty4" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="price4" runat="server"></asp:Label></td>
@@ -118,7 +118,7 @@
         </tr>
 
         <tr>
-            <td><asp:Label ID="ts5" runat="server"></asp:Label></td>
+            <td><asp:Label ID="ts05" runat="server"></asp:Label></td>
             <td><asp:Label ID="cs5" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="qty5" runat="server"></asp:Label></td>
             <td style="text-align: right;"><asp:Label ID="price5" runat="server"></asp:Label></td>
