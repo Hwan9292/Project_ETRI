@@ -1,0 +1,77 @@
+ALTER Proc [dbo].[UP_AddSCM_Order]
+(   
+@Title      VarChar(100),
+@Content    VarChar(1000),
+@code1   VarChar(100),
+@ps   VarChar(100),
+@sec1 int,
+@ts1   VarChar(100),
+@cs1   VarChar(1500),
+@link1   int,
+@lang1   VarChar(100),
+@Dead1   VarChar(100),
+@corp1 int,
+@tech1 int, 
+@upFileName   Varchar(200),
+@ts02  VarChar(100), 
+@ts03  VarChar(100), 
+@ts04  VarChar(100), 
+@ts05  VarChar(100), 
+@cs2  VarChar(100), 
+@cs3  VarChar(100), 
+@cs4  VarChar(100), 
+@cs5  VarChar(100), 
+@qty1  int, 
+@qty2  int, 
+@qty3  int, 
+@qty4  int, 
+@qty5  int, 
+@price1  int, 
+@price2  int, 
+@price3  int, 
+@price4  int, 
+@price5  int, 
+@vos1  int, 
+@vos2  int, 
+@vos3  int, 
+@vos4  int, 
+@vos5  int, 
+@vat1  int, 
+@vat2  int, 
+@vat3  int, 
+@vat4  int, 
+@vat5  int    
+        
+)
+As
+   Set Nocount on
+   --SCM_Order table에 선언된 컬럼들 값 넣기
+   Insert SCM_Order
+   (
+      Title, Content,code1,ps,ts1,cs1,link1,lang1,sec1,Dead1,corp1,tech1,upFileName, ts02, ts03, ts04, ts05, cs2, cs3, cs4, cs5, qty1, qty2, qty3, qty4, qty5, price1, price2, price3, price4, price5, vos1, vos2, vos3, vos4, vos5, vat1, vat2, vat3, vat4, vat5
+
+   )
+   Values
+   (
+         @Title,@Content,@code1,@ps,@ts1,@cs1,@link1,@lang1,@sec1,@Dead1,@corp1,@tech1,@upFileName, @ts02, @ts03, @ts04, @ts05, @cs2, @cs3, @cs4, @cs5, @qty1, @qty2, @qty3, @qty4, @qty5, @price1, @price2, @price3, @price4, @price5, @vos1, @vos2, @vos3, @vos4, @vos5, @vat1, @vat2, @vat3, @vat4, @vat5
+
+   )
+   --해당 컬럼들의 값을 사칙연산과 getDate()함수를 통해 값 갱신
+   update SCM_Order set Title = format(getdate(),'yyyyMMddHHmmss') where Title = @Title;
+   update SCM_Order set link1 = qty1+qty2+qty3+qty4+qty5;
+   update SCM_Order set tech1 = vos1+vos2+vos3+vos4+vos5;
+   update SCM_Order set corp1 = vat1+vat2+vat3+vat4+vat5;
+   update SCM_Order set sec1 = tech1+corp1;
+   update SCM_Order set vos1 = qty1*price1;
+   update SCM_Order set vat1 = vos1 *0.1;
+
+   update SCM_Order set vos2 = qty2*price2;
+   update SCM_Order set vos3 = qty3*price3;
+   update SCM_Order set vos4 = qty4*price4;
+   update SCM_Order set vos5 = qty5*price5;
+
+   update SCM_Order set vat1 = vos1 *0.1;
+   update SCM_Order set vat2 = vos2 *0.1;
+   update SCM_Order set vat3 = vos3 *0.1;
+   update SCM_Order set vat4 = vos4 *0.1;
+    update SCM_Order set vat5 = vos5 *0.1;

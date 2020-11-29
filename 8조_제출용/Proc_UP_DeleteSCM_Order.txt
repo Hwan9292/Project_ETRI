@@ -1,0 +1,10 @@
+
+ALTER Proc [dbo].[UP_DeleteSCM_Order]
+   @SCM_NoticeID Int
+As
+   Set Nocount on
+   Delete 
+      SCM_Order
+   Where
+      SCM_NoticeID = @SCM_NoticeID
+   Select @@RowCount

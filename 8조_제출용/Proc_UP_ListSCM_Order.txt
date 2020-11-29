@@ -1,0 +1,11 @@
+-- List Procedure : 호출 시 미리 저장해둔 아래에 정의된 SQL작업을 수행함.
+-- 즉, 일종의 함수와 같다고 생각하면 되겠다.
+-- List Procedure
+
+ALTER Proc [dbo].[UP_ListSCM_Order]
+   @code1 varchar(100) --프로시저 내에서 사용할 변수 선언
+AS   
+   Select *				-- SCM_Order table의 모든 컬럼을 선택
+   From	SCM_Order
+   where code1 like @code1+'%' -- code1의 값의 모든 데이터 조회 --like와 %는 지정된 값의 모든 문자를 검색하는 의미 
+   Order by	dead1,SCM_NoticeID asc --dead1, SCM_NoticeID 를 기준으로 오름차순하여 정렬
