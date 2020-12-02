@@ -1,0 +1,10 @@
+ALTER Proc [dbo].[UP_ViewSCM_Order]
+   @SCM_NoticeID Int
+  —SCM_Order table의 주키인 SCM_NoticeID를 불러서 저장된 값들을 보여줌
+AS   
+   Select 
+      *
+   From
+      SCM_Order
+   Where
+      SCM_NoticeID = @SCM_NoticeID
